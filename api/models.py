@@ -6,21 +6,28 @@ class Author(models.Model):
     username = models.CharField(max_length=50)
     name = models.CharField(max_length=70)
 
+    def __str__(self):
+        return self.name
+
 class Tweet(models.Model):
-    id = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     conversation_id = models.IntegerField()
-    created_at = models.CharField()
+    created_at = models.CharField(max_length=70)
     date = models.DateField()
     time = models.TimeField()
-    timezone = models.CharField()
+    timezone = models.CharField(max_length=70)
     auhtor = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True)
     tweet = models.TextField(max_length=500)
-    language =  models.CharField()
+    language =  models.CharField(max_length=70)
     replies_count = models.IntegerField()
     retweets_count = models.IntegerField()
     likes_count =  models.IntegerField()
-    link = models.CharField()
+    link = models.CharField(max_length=70)
     retweet = models.BooleanField()
+
+    def __str__(self):
+        return self.tweet
+
  
 
 
