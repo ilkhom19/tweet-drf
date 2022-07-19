@@ -12,7 +12,6 @@ class TweetSerializer (serializers.ModelSerializer):
         fields = [
         'id',
         'conversation_id',
-        'created_at',
         'date',
         'time',
         'timezone',

@@ -2,7 +2,7 @@ from django.db import models
 
 class Author(models.Model):
 
-    user_id = models.IntegerField()
+    user_id = models.IntegerField(primary_key=True)
     username = models.CharField(max_length=50)
     name = models.CharField(max_length=70)
 
@@ -12,11 +12,10 @@ class Author(models.Model):
 class Tweet(models.Model):
     id = models.IntegerField(primary_key=True)
     conversation_id = models.IntegerField()
-    created_at = models.CharField(max_length=70)
     date = models.DateField()
     time = models.TimeField()
     timezone = models.CharField(max_length=70)
-    auhtor = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True)
+    user_id = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True)
     tweet = models.TextField(max_length=500)
     language =  models.CharField(max_length=70)
     replies_count = models.IntegerField()
