@@ -2,7 +2,7 @@ from django.db import models
 
 class Author(models.Model):
 
-    user_id = models.IntegerField(primary_key=True)
+    user_id = models.BigIntegerField(primary_key=True)
     username = models.CharField(max_length=50)
     name = models.CharField(max_length=70)
 
@@ -10,8 +10,8 @@ class Author(models.Model):
         return self.name
 
 class Tweet(models.Model):
-    id = models.IntegerField(primary_key=True)
-    conversation_id = models.IntegerField()
+    id = models.BigIntegerField(primary_key=True)
+    conversation_id = models.BigIntegerField()
     date = models.DateField()
     time = models.TimeField()
     timezone = models.CharField(max_length=70)

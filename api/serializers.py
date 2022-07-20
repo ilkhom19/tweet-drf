@@ -1,6 +1,9 @@
 from rest_framework import serializers
 from .models import Author,Tweet
 
+class FileUploadSerializer(serializers.Serializer):
+    file = serializers.FileField()
+
 class AuthorSerializer (serializers.ModelSerializer):
     class Meta:
         model = Author
@@ -15,7 +18,7 @@ class TweetSerializer (serializers.ModelSerializer):
         'date',
         'time',
         'timezone',
-        'auhtor',
+        'user_id',
         'tweet',
         'language',
         'replies_count',
