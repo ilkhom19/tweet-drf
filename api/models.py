@@ -26,6 +26,8 @@ class Tweet(models.Model):
 
     def __str__(self):
         return self.tweet
+    class Meta:
+        ordering = ['likes_count']
 
  
 

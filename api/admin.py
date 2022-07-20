@@ -17,7 +17,7 @@ class TweetAdmin(admin.ModelAdmin):
         'link',
         'retweet'
         ]
-    list_filter = ('user_id', 'date')
+    list_filter = ('user_id',)
 
 admin.site.register(Author,AuthorAdmin)
 admin.site.register(Tweet, TweetAdmin)
